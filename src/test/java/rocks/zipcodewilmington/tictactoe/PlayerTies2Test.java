@@ -16,8 +16,8 @@ public class PlayerTies2Test {
         // Given
         this.board = new Board(new Character[][]{
                 {'X', 'X', 'O'},
-                {'O', 'X', 'O'},
-                {'X', 'O', 'X'}
+                {'O', 'X', 'X'},
+                {'X', 'O', 'O'}
         });
     }
 

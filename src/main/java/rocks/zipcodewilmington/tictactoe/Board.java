@@ -6,38 +6,86 @@ package rocks.zipcodewilmington.tictactoe;
 public class Board {
     Character[][] gameBoard;
     public Board(Character[][] matrix) {
-     this.gameBoard=matrix;
+     gameBoard= matrix;
     }
 
     public Boolean isInFavorOfX() {
-        if((gameBoard[0][1]==gameBoard[1][1])&&(gameBoard[0][1]==gameBoard[2][1])){
+
+        if(gameBoard[0][0]== 'X'&& gameBoard[0][1]=='X'&& gameBoard[0][2]=='X'){
             return true;}
-        else {return false;}
+        else if(gameBoard[1][0]=='X' && gameBoard[1][1]=='X' && gameBoard[1][2]=='X') {
+            return true;
+        }
+        else if (gameBoard[2][0]=='X' && gameBoard[2][1]=='X' && gameBoard[2][2]=='X'){
+            return true;
+        }
+        else if (gameBoard[0][0]=='X' && gameBoard[1][0]=='X' && gameBoard[2][0]=='X'){
+            return true;
+        }
+        else if (gameBoard[0][1]=='X' && gameBoard[1][1]=='X' && gameBoard[2][1]=='X'){
+            return true;
+        }
+        else if (gameBoard[0][2]=='X' && gameBoard[1][2]=='X' && gameBoard[2][2]=='X'){
+            return true;
+        }
+        else if (gameBoard[0][0]=='X' && gameBoard[1][1]=='X' && gameBoard[2][2]=='X'){
+            return true;
+        }
+        else if (gameBoard[2][0]=='X' && gameBoard[1][1]=='X' && gameBoard[0][2]=='X'){
+            return true;
+        }
+        else return false;
   }
 
     public Boolean isInFavorOfO() {
-        if((gameBoard[0][1]==gameBoard[1][1])&&(gameBoard[0][1]==gameBoard[2][1])){
-        return true;}
-        else {return false;}
+        if(gameBoard[0][0]== 'O'&& gameBoard[0][1]=='O'&& gameBoard[0][2]=='O'){
+            return true;}
+        else if(gameBoard[1][0]=='O' && gameBoard[1][1]=='O' && gameBoard[1][2]=='O') {
+            return true;
+        }
+        else if (gameBoard[2][0]=='O' && gameBoard[2][1]=='O' && gameBoard[2][2]=='O'){
+            return true;
+        }
+        else if (gameBoard[0][0]=='O' && gameBoard[1][0]=='O' && gameBoard[2][0]=='O'){
+            return true;
+        }
+        else if (gameBoard[0][1]=='O' && gameBoard[1][1]=='O' && gameBoard[2][1]=='O'){
+            return true;
+        }
+        else if (gameBoard[0][2]=='O' && gameBoard[1][2]=='O' && gameBoard[2][2]=='O'){
+            return true;
+        }
+        else if (gameBoard[0][0]=='O' && gameBoard[1][1]=='O' && gameBoard[2][2]=='O'){
+            return true;
+        }
+        else if (gameBoard[2][0]=='O' && gameBoard[1][1]=='O' && gameBoard[0][2]=='O'){
+            return true;
+        }
+        else return false;
     }
 
     public Boolean isTie() {
-        Boolean flag=false;
-        if((gameBoard[0][0]==gameBoard[0][2]) ==( gameBoard[0][2] == gameBoard[2][0])){
-         flag=true;}
-        else {flag=false;}
-        return flag;
+     if (isInFavorOfO()==isInFavorOfX()) {
+         return true;
+
+     } else
+         return false;
+//       if(!this.isInFavorOfO() && !this.isInFavorOfX()){
+//           return true;
+//       } else {
+//           return false;
+//       }
     }
 
     public String getWinner() {
-        for (int x=0; x< gameBoard.length; x++){
-            if((gameBoard[0][1]==gameBoard[1][1])&&(gameBoard[0][1]==gameBoard[2][1])){ return "Winner O";}
-        else if((gameBoard[0][1]==gameBoard[1][1])&&(gameBoard[0][1]==gameBoard[2][1])) {return "Winner X";}
-        else {
-                return "its tie";
-            }
-        }
-        return "null";
+
+      if(this.isInFavorOfX()){
+          return "X";
+      } else if (this.isInFavorOfO()){
+          return "O";
+      } else
+          return "";
+
     }
     }
 
